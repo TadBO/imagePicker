@@ -1,0 +1,235 @@
+<html>
+  <head>
+	  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>i5ting_ztree_toc:README</title>
+		<link href="toc/style/github-bf51422f4bb36427d391e4b75a1daa083c2d840e.css" media="all" rel="stylesheet" type="text/css"/>
+		<link href="toc/style/github2-d731afd4f624c99a4b19ad69f3083cd6d02b81d5.css" media="all" rel="stylesheet" type="text/css"/>
+		<link href="toc/css/zTreeStyle/zTreeStyle.css" media="all" rel="stylesheet" type="text/css"/>
+	  <style>
+		pre {
+		    counter-reset: line-numbering;
+		    border: solid 1px #d9d9d9;
+		    border-radius: 0;
+		    background: #fff;
+		    padding: 0;
+		    line-height: 23px;
+		    margin-bottom: 30px;
+		    white-space: pre;
+		    overflow-x: auto;
+		    word-break: inherit;
+		    word-wrap: inherit;
+		}
+
+		pre a::before {
+		  content: counter(line-numbering);
+		  counter-increment: line-numbering;
+		  padding-right: 1em; /* space after numbers */
+		  width: 25px;
+		  text-align: right;
+		  opacity: 0.7;
+		  display: inline-block;
+		  color: #aaa;
+		  background: #eee;
+		  margin-right: 16px;
+		  padding: 2px 10px;
+		  font-size: 13px;
+		  -webkit-touch-callout: none;
+		  -webkit-user-select: none;
+		  -khtml-user-select: none;
+		  -moz-user-select: none;
+		  -ms-user-select: none;
+		  user-select: none;
+		}
+
+		pre a:first-of-type::before {
+		  padding-top: 10px;
+		}
+
+		pre a:last-of-type::before {
+		  padding-bottom: 10px;
+		}
+
+		pre a:only-of-type::before {
+		  padding: 10px;
+		}
+
+		.highlight { background-color: #ffffcc } /* RIGHT */
+		</style>
+  </head>
+  <body>
+	  <div>
+				<div style='width:25%;'>
+						<ul id="tree" class="ztree" style='width:100%'>
+
+						</ul>
+				</div>
+        <div id='readme' style='width:70%;margin-left:20%;'>
+          	<article class='markdown-body'>
+            	<h1 id="imagepicker-">ImagePicker 插件的使用文档</h1>
+<ul>
+<li>ImagePicker 是用来根据给定坐标及宽高来显示对应图片的位置，并可以对图片进行操作，例如放大缩小拖拽，用于易豹项目报关时自动生成报关单与原始报关单进行对比</li>
+<li>ImagePicker 目前暂未加上旋转，截图等操作，后期根据业务需求与时间进行补充</li>
+<li>效果如下
+<img src="demo.png" alt="avatar"></li>
+</ul>
+<h2 id="-">使用方法</h2>
+<ul>
+<li>1.引入imagePicker </li>
+<li>2.使用imagePicker<pre><code class="lang-javascript"> let imagePicker = new imagePicker({
+     imgSrc: [
+         {
+             src: &#39;http://img18.3lian.com/d/file/201711/23/d667b347e689abd76539842566e90bdc.png&#39;,
+             title: &#39;Taylor&#39;
+         },
+         {
+             src: &#39;https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1536905408593&amp;di=060166ae107dcfa640ce236a13bdcf38&amp;imgtype=0&amp;src=http%3A%2F%2Fwww.365wellbet.com%2Fwp-content%2Fuploads%2F2017%2F07%2F1365991084917.jpg&#39;,
+             title: &#39;Avril&#39;
+         }
+     ]
+ });
+ imagePicker.selected([{
+          posX: 0, 
+          posY: 10,  
+          lineW:  200,
+          lineH: 100,
+          flag: &#39;http://img18.3lian.com/d/file/201711/23/d667b347e689abd76539842566e90bdc.png&#39;,
+          state: 1
+ }]) 
+</code></pre>
+</li>
+</ul>
+<h3 id="-">相关参数</h3>
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th style="text-align:center">说明</th>
+<th style="text-align:center">类型</th>
+<th style="text-align:right">默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>width</td>
+<td style="text-align:center">容器宽度</td>
+<td style="text-align:center">number</td>
+<td style="text-align:right">800</td>
+</tr>
+<tr>
+<td>height</td>
+<td style="text-align:center">容器高度</td>
+<td style="text-align:center">number</td>
+<td style="text-align:right">600</td>
+</tr>
+<tr>
+<td>el</td>
+<td style="text-align:center">目标元素</td>
+<td style="text-align:center">string</td>
+<td style="text-align:right">&#39;body&#39;</td>
+</tr>
+<tr>
+<td>imgX</td>
+<td style="text-align:center">图片在画布显示位置，左上角x轴</td>
+<td style="text-align:center">number</td>
+<td style="text-align:right">0</td>
+</tr>
+<tr>
+<td>imgY</td>
+<td style="text-align:center">图片在画布显示位置，左上角y轴</td>
+<td style="text-align:center">number</td>
+<td style="text-align:right">0</td>
+</tr>
+<tr>
+<td>imgSrc</td>
+<td style="text-align:center">要展示的图片</td>
+<td style="text-align:center">array</td>
+<td style="text-align:right">-</td>
+</tr>
+<tr>
+<td>showMoveBtn</td>
+<td style="text-align:center">左侧导航</td>
+<td style="text-align:center">boolean</td>
+<td style="text-align:right">false</td>
+</tr>
+<tr>
+<td>loop</td>
+<td style="text-align:center">左侧导航循环</td>
+<td style="text-align:center">boolean</td>
+<td style="text-align:right">false</td>
+</tr>
+<tr>
+<td>showTopBar</td>
+<td style="text-align:center">上侧导航</td>
+<td style="text-align:center">boolean</td>
+<td style="text-align:right">true</td>
+</tr>
+</tbody>
+</table>
+<h3 id="-">方法</h3>
+<ul>
+<li>selected(array)  传入坐标信息数组</li>
+</ul>
+<h4 id="-">传入参数详解</h4>
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th style="text-align:center">说明</th>
+<th style="text-align:right">类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>posX</td>
+<td style="text-align:center">坐标轴x轴位置</td>
+<td style="text-align:right">number</td>
+</tr>
+<tr>
+<td>posY</td>
+<td style="text-align:center">坐标轴y轴位置</td>
+<td style="text-align:right">number</td>
+</tr>
+<tr>
+<td>lineW</td>
+<td style="text-align:center">线框的宽度</td>
+<td style="text-align:right">number</td>
+</tr>
+<tr>
+<td>lineH</td>
+<td style="text-align:center">线框的高度</td>
+<td style="text-align:right">number</td>
+</tr>
+<tr>
+<td>state</td>
+<td style="text-align:center">线框的颜色</td>
+<td style="text-align:right">number</td>
+</tr>
+<tr>
+<td>flag</td>
+<td style="text-align:center">线框在哪张图片显示的标志</td>
+<td style="text-align:right">string</td>
+</tr>
+</tbody>
+</table>
+
+          	</article>
+        </div>
+		</div>
+  </body>
+</html>
+<script type="text/javascript" src="toc/js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="toc/js/jquery.ztree.all-3.5.min.js"></script>
+<script type="text/javascript" src="toc/js/ztree_toc.js"></script>
+<script type="text/javascript" src="toc_conf.js"></script>
+
+<SCRIPT type="text/javascript" >
+<!--
+$(document).ready(function(){
+    var css_conf = eval(markdown_panel_style);
+    $('#readme').css(css_conf)
+    
+    var conf = eval(jquery_ztree_toc_opts);
+		$('#tree').ztree_toc(conf);
+});
+//-->
+</SCRIPT>
